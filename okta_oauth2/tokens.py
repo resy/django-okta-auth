@@ -90,11 +90,11 @@ class TokenValidator:
         if token_result is None or "id_token" not in token_result:
             return None, tokens
 
-        if self.using_org_authorization_server:
-            self.validate_token(token_result["id_token"])
-            claims = self.request_userinfo(token_result["access_token"])
-        else:
-            claims = self.validate_token(token_result["id_token"])
+        #if self.using_org_authorization_server:
+        #    self.validate_token(token_result["id_token"])
+        #    claims = self.request_userinfo(token_result["access_token"])
+        #else:
+        claims = self.validate_token(token_result["id_token"])
 
         if claims:
             tokens["id_token"] = token_result["id_token"]
